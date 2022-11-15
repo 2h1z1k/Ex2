@@ -20,7 +20,7 @@ const productsArray: Product[] = [
     },
     {
         id:2,
-        name:"iPhone 13 Pro",
+        name:"iPhone 14 Max ",
         description:"This is iPhone 13Pro",
         type:"phone",
         capacity:128,
