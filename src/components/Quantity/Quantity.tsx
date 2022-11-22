@@ -1,40 +1,22 @@
-import React from "react"
-import { Button, TextField } from "@mui/material"
+import React from 'react'
+import { useState } from "react"
 
 type Props = {
-    onDecrementClick: () => void
-    onIncrementClick: () => void
-    count: number
-    minCount?: number
+    id:number
+    count:number
 }
 
-const Quantity = ({
-    onDecrementClick,
-    onIncrementClick,
-    count,
-    minCount = 1,
-}: Props) => {
-    return (
-        <div className="product-quantity">
-            <Button
-                variant="contained"
-                size="small"
-                onClick={onDecrementClick}
-                disabled={count <= minCount}
-            >
-                -
-            </Button>
-            <TextField size="small" value={count} variant="outlined" />
-            <Button
-                variant="contained"
-                size="small"
-                onClick={onIncrementClick}
-                disabled={count >= 10}
-            >
-                +
-            </Button>
-        </div>
-    )
+const Quantity = (props: Props) => {
+  const [count, setCount] = useState<number>(0)
+
+    const onIncrementClick = () =>
+    setCount((id: number) => id + 1)
+
+  return (
+    <>
+        <button onClick={onIncrementClick} >Change count:{count}</button>
+    </>
+  )
 }
 
 export default Quantity

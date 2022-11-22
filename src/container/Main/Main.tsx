@@ -1,51 +1,39 @@
-import { Container } from "@mui/material"
-import AboutPage from "pages/About/AboutPage"
-import CartPage from "pages/Cart/CartPage"
-import Home from "pages/Home/Home"
-import PaymentPage from "pages/Payment/PaymentPage"
-import ShippingPage from "pages/Shipping/ShippingPage"
-import { Routes, Route } from "react-router-dom"
+import React from 'react'
+import {Container, Grid } from "@mui/material"
+import "./Main.scss"
+import { useState } from "react"
+import Quantity from "components/Quantity/Quantity"
+import quantityArray from 'components/QuantityArray/QuantityArray'
 
-type Props = {
-    addProductToCart: (id: number, count: number) => void
-    productsInCart: {
-        [id: number]: number
-    }
-    removeProductFromCart: (id: number) => void
-    changeProductQuantity: (id: number, count: number) => void
+
+type QuantityProps ={
+    id:number
+    count:number
 }
 
-const Main = ({
-    addProductToCart,
-    productsInCart,
-    removeProductFromCart,
-    changeProductQuantity,
-}: Props) => {
-    return (
-        <main>
-            <Container maxWidth="lg">
-                <Routes>
-                    <Route
-                        path="/"
-                        element={<Home addProductToCart={addProductToCart} />}
-                    />
-                    <Route
-                        path="cart"
-                        element={
-                            <CartPage
-                                productsInCart={productsInCart}
-                                removeProductFromCart={removeProductFromCart}
-                                changeProductQuantity={changeProductQuantity}
+
+type Props = {
+}
+
+const Main = (props: Props) => {
+
+  return (
+        <Container className='Container'>
+           {quantityArray.map(
+                    ({
+                        id,
+                        count
+                    }: QuantityProps) => (
+                        <Grid key={id}>
+                            <Quantity
+                                id={id} 
+                                count={count}
                             />
-                        }
-                    />
-                    <Route path="about" element={<AboutPage />} />
-                    <Route path="shipping" element={<ShippingPage />} />
-                    <Route path="payment" element={<PaymentPage />} />
-                </Routes>
-            </Container>
-        </main>
-    )
+                        </Grid>
+                    )
+                )}
+        </Container>
+  )
 }
 
 export default Main
