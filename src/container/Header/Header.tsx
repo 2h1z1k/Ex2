@@ -5,7 +5,13 @@ type Props = {}
 
 const Header = (props: Props) => {
   return (
-    <div className='fst'>Перше завдання:</div>
+    <>
+    <div className='logo'>Our shop page</div>
+      <button>EUR</button>
+      <button>USD</button>
+      <button>UAH</button>
+      <button>JPY</button>
+    </>
   )
 }
 

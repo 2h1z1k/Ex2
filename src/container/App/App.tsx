@@ -1,19 +1,53 @@
-import React from 'react'
+import React, { useState } from "react"
 import CssBaseline from '@mui/material/CssBaseline'
 import Header from 'container/Header/Header'
 import Main from '../Main/Main'
 import Footer from '../Footer/Footer'
 import { StyledEngineProvider } from '@mui/material'
 
-type Props = {}
+type ValutaProps ={
+    [valuta:string]:string
+  }
+
+type AppProps = {
+    [id: number]: number
+}
+
+type Props = {
+}
 
 const App = (props: Props) => {
+    const [productsInCart, setProductsInCart] = useState<AppProps>({
+        1: 0,
+        2: 0,
+    })
+
+    const addProductToCart = (id: number, count: number) => {
+        setProductsInCart((prevState: AppProps) => ({
+            ...prevState,
+            [id]: (prevState[id] || 0) + count,
+        }))
+    }
+
+    const [valutaInCart, setValuta] = useState<ValutaProps>({
+        USD: "USD",
+      })
+    
+      const changeValuta = (valuta:string) => {
+        setValuta((prevState: ValutaProps) => ({
+          ...prevState,
+          [valuta]: (prevState[valuta]),
+        }))
+      }
+
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header />
-            <Main/>
-            <Footer />
+            <Main 
+            addProductToCart={addProductToCart}
+            productsInCart={productsInCart}/>
+            <Footer productsInCart={productsInCart} valutaInCart={valutaInCart}/>
         </StyledEngineProvider>
     )
 }
