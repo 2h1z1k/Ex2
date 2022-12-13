@@ -29,10 +29,6 @@ const App = (props: Props) => {
         }))
     }
 
-    const [valutaInCart, setValuta] = useState<ValutaProps>({
-        USD: "USD",
-      })
-
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />

@@ -1,6 +1,6 @@
 import React from "react"
-import {Card, CardContent} from "@mui/material"
-import {useState} from "react"
+import { Card, CardContent } from "@mui/material"
+import { useState } from "react"
 
 type Props = {
     id: number
@@ -17,23 +17,23 @@ const ProductListItem = ({
     description,
     price,
     valuta,
-    addProductToCart
+    addProductToCart,
 }: Props) => {
     const [count] = useState<number>(1)
     return (
         <>
-        <Card>
-            <CardContent>
-                <h4>{name}</h4>
-                <div>{description}</div>
-                <div className="product-features">
-                    Price: {price} {valuta}
-                </div>
-                <button
-                onClick={() => addProductToCart(id, count)}
-                >BUY</button>
-            </CardContent>
-        </Card>
+            <Card>
+                <CardContent>
+                    <h4>{name}</h4>
+                    <div>{description}</div>
+                    <div className="product-features">
+                        Price: {price} {valuta}
+                    </div>
+                    <button onClick={() => addProductToCart(id, count)}>
+                        BUY
+                    </button>
+                </CardContent>
+            </Card>
         </>
     )
 }

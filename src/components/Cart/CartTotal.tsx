@@ -4,7 +4,6 @@ import productsArray, {
     getProductsObject,
     Product,
 } from "components/Products/ProductsArray"
-import ProductListItem from "components/Products/ProductListItem"
 
 type Props = {
     productsInCart: {
