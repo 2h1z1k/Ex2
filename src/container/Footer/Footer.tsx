@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import ProductsArray,{ getProductsObject,Product} from "components/Products/ProductsArray"
+import React from 'react'
 import CartTotal from "components/Cart/CartTotal"
 
 
