@@ -7,7 +7,6 @@ type Props = {
   productsInCart: {
     [id: number]: number
 }
-valuta:string
 }
 
 const Footer = ({productsInCart,}: Props) => {

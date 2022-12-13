@@ -32,13 +32,6 @@ const App = (props: Props) => {
     const [valutaInCart, setValuta] = useState<ValutaProps>({
         USD: "USD",
       })
-    
-      const changeValuta = (valuta:string) => {
-        setValuta((prevState: ValutaProps) => ({
-          ...prevState,
-          [valuta]: (prevState[valuta]),
-        }))
-      }
 
     return (
         <StyledEngineProvider injectFirst>
@@ -47,7 +40,7 @@ const App = (props: Props) => {
             <Main 
             addProductToCart={addProductToCart}
             productsInCart={productsInCart}/>
-            <Footer productsInCart={productsInCart} valutaInCart={valutaInCart}/>
+            <Footer productsInCart={productsInCart}/>
         </StyledEngineProvider>
     )
 }

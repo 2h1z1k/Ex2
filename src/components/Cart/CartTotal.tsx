@@ -13,13 +13,11 @@ type Props = {
     productsObject?: {
         [key: number]: Product
     }
-    valuta:string
 }
 
 const CartTotal = ({
     productsInCart,
     productsObject = getProductsObject(productsArray),
-    valuta
 }: Props) => {
     return (
         <div>
@@ -30,7 +28,7 @@ const CartTotal = ({
                     productsObject[parseInt(productId)].price *
                         productsInCart[parseInt(productId)],
                 0 
-            )}{valuta}
+            )}
         </div>
     )
 }
