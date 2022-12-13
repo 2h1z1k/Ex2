@@ -5,9 +5,7 @@ import Main from '../Main/Main'
 import Footer from '../Footer/Footer'
 import { StyledEngineProvider } from '@mui/material'
 
-type ValutaProps ={
-    [valuta:string]:string
-  }
+
 
 type AppProps = {
     [id: number]: number
